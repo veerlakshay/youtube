@@ -897,11 +897,23 @@ extension.features.removeMemberOnly = function () {
 		const style = document.createElement('style');
 		style.id = 'remove-member-only-style';
 		style.textContent = `
-			badge-shape.yt-badge-shape--membership {
+			badge-shape.yt-badge-shape--membership,
+			yt-badge[aria-label*="Members"],
+			.badge-style-type-members-only {
 				display: none !important;
 			}
 			ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
-			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership) {
+			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
+			ytd-video-renderer:has(badge-shape.yt-badge-shape--membership),
+			ytd-compact-video-renderer:has(badge-shape.yt-badge-shape--membership),
+			ytd-reel-item-renderer:has(badge-shape.yt-badge-shape--membership),
+			yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership),
+			ytd-grid-video-renderer:has(.badge-style-type-members-only),
+			ytd-rich-item-renderer:has(.badge-style-type-members-only),
+			ytd-video-renderer:has(.badge-style-type-members-only),
+			ytd-compact-video-renderer:has(.badge-style-type-members-only),
+			ytd-reel-item-renderer:has(.badge-style-type-members-only),
+			yt-lockup-view-model:has(.badge-style-type-members-only) {
 				display: none !important;
 			}
 		`;
