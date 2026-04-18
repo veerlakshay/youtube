@@ -893,6 +893,9 @@ extension.features.changeThumbnailsPerRow = async function () {
 # REMOVE MEMBER ONLY VIDEOS FROM HOME PAGE
 --------------------------------------------------------------*/
 extension.features.removeMemberOnly = function () {
+	const existing = document.getElementById('remove-member-only-style');
+	if (existing) existing.remove();
+
 	if (extension.storage.get('remove_member_only')) {
 		const style = document.createElement('style');
 		style.id = 'remove-member-only-style';
