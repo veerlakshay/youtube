@@ -900,17 +900,17 @@ extension.features.removeMemberOnly = function () {
 		const style = document.createElement('style');
 		style.id = 'remove-member-only-style';
 		style.textContent = `
-			badge-shape:has(.ytBadgeShapeMembershipTypography),
+			badge-shape.ytBadgeShapeMembership,
 			badge-shape.yt-badge-shape--membership,
 			.badge-style-type-members-only {
 				display: none !important;
 			}
-			ytd-grid-video-renderer:has(.ytBadgeShapeMembershipTypography),
-			ytd-rich-item-renderer:has(.ytBadgeShapeMembershipTypography),
-			ytd-video-renderer:has(.ytBadgeShapeMembershipTypography),
-			ytd-compact-video-renderer:has(.ytBadgeShapeMembershipTypography),
-			ytd-reel-item-renderer:has(.ytBadgeShapeMembershipTypography),
-			yt-lockup-view-model:has(.ytBadgeShapeMembershipTypography),
+			ytd-grid-video-renderer:has(.ytBadgeShapeMembership),
+			ytd-rich-item-renderer:has(.ytBadgeShapeMembership),
+			ytd-video-renderer:has(.ytBadgeShapeMembership),
+			ytd-compact-video-renderer:has(.ytBadgeShapeMembership),
+			ytd-reel-item-renderer:has(.ytBadgeShapeMembership),
+			yt-lockup-view-model:has(.ytBadgeShapeMembership),
 			ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
 			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
 			ytd-video-renderer:has(badge-shape.yt-badge-shape--membership),
