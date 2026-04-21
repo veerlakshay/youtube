@@ -893,15 +893,36 @@ extension.features.changeThumbnailsPerRow = async function () {
 # REMOVE MEMBER ONLY VIDEOS FROM HOME PAGE
 --------------------------------------------------------------*/
 extension.features.removeMemberOnly = function () {
+	const existing = document.getElementById('remove-member-only-style');
+	if (existing) existing.remove();
+
 	if (extension.storage.get('remove_member_only')) {
 		const style = document.createElement('style');
 		style.id = 'remove-member-only-style';
 		style.textContent = `
-			badge-shape.yt-badge-shape--membership {
+			badge-shape.ytBadgeShapeMembership,
+			badge-shape.yt-badge-shape--membership,
+			.badge-style-type-members-only {
 				display: none !important;
 			}
+			ytd-grid-video-renderer:has(.ytBadgeShapeMembership),
+			ytd-rich-item-renderer:has(.ytBadgeShapeMembership),
+			ytd-video-renderer:has(.ytBadgeShapeMembership),
+			ytd-compact-video-renderer:has(.ytBadgeShapeMembership),
+			ytd-reel-item-renderer:has(.ytBadgeShapeMembership),
+			yt-lockup-view-model:has(.ytBadgeShapeMembership),
 			ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
-			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership) {
+			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
+			ytd-video-renderer:has(badge-shape.yt-badge-shape--membership),
+			ytd-compact-video-renderer:has(badge-shape.yt-badge-shape--membership),
+			ytd-reel-item-renderer:has(badge-shape.yt-badge-shape--membership),
+			yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership),
+			ytd-grid-video-renderer:has(.badge-style-type-members-only),
+			ytd-rich-item-renderer:has(.badge-style-type-members-only),
+			ytd-video-renderer:has(.badge-style-type-members-only),
+			ytd-compact-video-renderer:has(.badge-style-type-members-only),
+			ytd-reel-item-renderer:has(.badge-style-type-members-only),
+			yt-lockup-view-model:has(.badge-style-type-members-only) {
 				display: none !important;
 			}
 		`;
